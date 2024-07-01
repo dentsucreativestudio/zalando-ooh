@@ -41,6 +41,12 @@ var settings = [
 * The data should be available within +-one minute to propagate in the server.
 
 
+# HTML preview links
+
+For pre-visualisation of what will be displayed in the DOOH screens.
+
+###  1080x1920:
+* Liege Dooh: [Preview](https://dentsucreativestudio.github.io/zalando-ooh/zalando-HTML-1080x1920/index.html)
 
 
 
