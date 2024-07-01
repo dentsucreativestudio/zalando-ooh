@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,7 +16,7 @@
       height: 1920px;    
       top: 1080px;
       left: 0;
-      transform: rotate(-90deg);
+/*       transform: rotate(-90deg); */
       transform-origin: top left;
       position:absolute;    
         
@@ -58,7 +59,7 @@
             var randomItem = arrayRotation[Math.floor(Math.random()*arrayRotation.length)];
 
             // Iterate through the settings array and create image elements
-            settings.forEach(function(item) {
+            
                 var img = document.createElement('img');
                 img.src = randomItem.image;
                 img.alt = 'Dynamic Image';
@@ -71,7 +72,7 @@
 
                   //set banner visibility
                 banner.style.visibility  = "visible";
-            });
+            
         } else {
             console.error('Settings array is not defined or empty.');
         }
