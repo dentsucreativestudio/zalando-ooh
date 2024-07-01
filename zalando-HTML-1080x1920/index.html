@@ -29,53 +29,58 @@
 </head>
 <body>
   <div id="banner"></div>
-  <script src="https://github.com/dentsucreativestudio/zalando-ooh/blob/main/data/images.js"></script>
+  <!-- <script src="https://dentsucreativestudio.github.io/zalando-ooh/data/images.js"></script> -->
   <script>
-     var banner = document.querySelector("#banner");
-     
-
-     function onDocumentReadyHandler(){
-
-        var arrayRotation =[];
-
-        //length for the 3 first images in the array
-        for (var i = 0; i < 5; i++) {
-          arrayRotation.push(settings[i]);
-        }        
-        //randomize the array
-        var randomItem = arrayRotation[Math.floor(Math.random()*arrayRotation.length)];
-        // console.log(randomItem , ' ' , arrayRotation.length)
-      
-        var img = new Image();
-        img.id = "visual";
-        img.onload = function() {
-          banner.className = 'fade-in';
-          banner.appendChild(img);
-          console.log('Image loaded.')
-        };
-        img.onerror = function() {
-            // the image has failed, load a local default image
-            var defaults = [
-              'default1.jpg',
-              'default2.jpg',
-              'default3.jpg'
-            ]
-            var randomDefault = defaults[Math.floor(Math.random()*defaults.length)];
-            img.src = randomDefault;   
-            console.log('Image not loaded.')
-        };
-        img.src = randomItem.image;   
-        //end loading image
-
-        var bw = banner.offsetWidth; 
-        var bh = banner.offsetHeight; 
-
-        //set banner visibility
-        banner.style.visibility  = "visible";
-
+    var banner = document.querySelector("#banner");
+    // Function to load the JavaScript file dynamically
+    function loadScript(url, callback) {
+        var script = document.createElement('script');
+        script.src = url;
+        script.onload = callback;
+        document.head.appendChild(script);
     }
-  document.addEventListener("DOMContentLoaded", onDocumentReadyHandler);
+
+    // Function to process the loaded settings
+    function processSettings() {
+        // Check if the settings array is available
+        if (typeof settings !== 'undefined' && Array.isArray(settings)) {
+            
+            // Clear any previous content
+            banner.innerHTML = '';
+
+            var arrayRotation =[];
+
+            //length for the 3 first images in the array
+            for (var i = 0; i < 3; i++) {
+              arrayRotation.push(settings[i]);
+            }        
+            //randomize the array
+            var randomItem = arrayRotation[Math.floor(Math.random()*arrayRotation.length)];
+
+            // Iterate through the settings array and create image elements
+            settings.forEach(function(item) {
+                var img = document.createElement('img');
+                img.src = randomItem.image;
+                img.alt = 'Dynamic Image';
+                img.style.width = '1080px'; // Adjust size as needed
+                img.style.height = '1920px'; // Adjust size as needed
+
+                banner.className = 'fade-in';
+                
+                banner.appendChild(img);
+
+                  //set banner visibility
+                banner.style.visibility  = "visible";
+            });
+        } else {
+            console.error('Settings array is not defined or empty.');
+        }
+    }
+
+    // Load the JavaScript file and process it once loaded
+    loadScript('https://dentsucreativestudio.github.io/zalando-ooh/data/images.js', processSettings);
 </script>
+
 </body>
  
 </html>
