@@ -27,10 +27,11 @@ Image path example: 'path/to/url' *// example -> https://dentsucreativestudio.gi
 ```
 var settings = [
   //New images added above
-  { image: 'https://dentsucreativestudio.github.io/zalando-ooh/images/zalando1.jpg'},
+  { image: 'https://dentsucreativestudio.github.io/zalando-ooh/images/zalando4.jpg'},
+  { image: 'https://dentsucreativestudio.github.io/zalando-ooh/images/zalando3.jpg'},
   { image: 'https://dentsucreativestudio.github.io/zalando-ooh/images/zalando2.jpg'},
   //all other images below
-  { image: 'https://dentsucreativestudio.github.io/zalando-ooh/images/zalando3.jpg'},
+  { image: 'https://dentsucreativestudio.github.io/zalando-ooh/images/zalando1.jpg'},
   ...
 ];
  ```
