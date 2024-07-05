@@ -59,13 +59,12 @@
             var randomItem = arrayRotation[Math.floor(Math.random()*arrayRotation.length)];
 
             // Iterate through the settings array and create image elements
+
             
                 var img = document.createElement('img');
-                img.src = randomItem.image;
-                img.alt = 'Dynamic Image';
+                img.src = settings[0].image // use the top image from the list // randomItem.image;
                 img.style.width = '1080px'; // Adjust size as needed
                 img.style.height = '1920px'; // Adjust size as needed
-
                 banner.className = 'fade-in';
                 
                 banner.appendChild(img);
