@@ -34,10 +34,12 @@
     var banner = document.querySelector("#banner");
     // Function to load the JavaScript file dynamically
     function loadScript(url, callback) {
-        var script = document.createElement('script');
-        script.src = url;
-        script.onload = callback;
-        document.head.appendChild(script);
+
+      var script = document.createElement('script');
+          script.type = 'text/javascript';
+          script.src = url + '?t=' + new Date().getTime(); // Append timestamp to URL
+          script.onload = callback;
+          document.body.appendChild(script);
     }
 
     // Function to process the loaded settings
@@ -50,34 +52,41 @@
 
             var img = new Image();
               img.id = "visual";
+              img.style.width = '1080px';
+              img.style.height = '1920px';
+              banner.className = 'fade-in';     
               img.onload = function() {
-                banner.className = 'fade-in';
-                img.style.width = '1080px';
-                img.style.height = '1920px';
                 banner.appendChild(img);
                 console.log('Image loaded.')
               };
               img.onerror = function() {
                   // the image has failed, load a local default image
-                  img.src = 'default.jpg';   
+                  img.src = 'ZAL0001_Festival_Les Ardentes_DOOH_Static_Carl.jpg';   
+                  banner.appendChild(img);
                   console.log('Image not loaded.')
               };
 
               img.src = settings[0].image;               
+              
 
-                
-                banner.appendChild(img);
-
-                  // set banner visibility
-                banner.style.visibility  = "visible";
+              // set banner visibility
+              banner.style.visibility  = "visible";
             
         } else {
 
           var img = new Image();
               img.id = "visual";
-              img.src = 'default.jpg';   
-               img.style.width = '1080px';
-               img.style.height = '1920px';
+              var defaults = [
+                'ZAL0001_Festival_Les Ardentes_DOOH_Static_Carl.jpg',
+                'ZAL0001_Festival_Les Ardentes_DOOH_Static_Group.jpg',
+                'ZAL0001_Festival_Les Ardentes_DOOH_Static_Jacques.jpg',
+                'ZAL0001_Festival_Les Ardentes_DOOH_Static_Trish.jpg',
+                'ZAL0001_Festival_Les Ardentes_DOOH_Static_Twins.jpg',
+              ]
+              var randomDefault = defaults[Math.floor(Math.random()*defaults.length)];
+              img.src = randomDefault;   
+              img.style.width = '1080px';
+              img.style.height = '1920px';
               banner.appendChild(img);
               banner.style.visibility  = "visible";
 
