@@ -50,23 +50,24 @@
             // Clear any previous content
             banner.innerHTML = '';
 
+            var randomImageFromList = settings[Math.floor(Math.random()*settings.length)];
+
             var img = new Image();
               img.id = "visual";
-              img.style.width = '1080px';
-              img.style.height = '1920px';
               banner.className = 'fade-in';     
+
               img.onload = function() {
-                banner.appendChild(img);
-                console.log('Image loaded.')
+                  banner.appendChild(img);
               };
               img.onerror = function() {
                   // the image has failed, load a local default image
-                  img.src = 'ZAL0001_Festival_Les Ardentes_DOOH_Static_Carl.jpg';   
+                  img.src = 'ZAL0001_Festival_Les_Ardentes_DOOH_Static_Carl.jpg';   
                   banner.appendChild(img);
                   console.log('Image not loaded.')
               };
 
-              img.src = settings[0].image;               
+              img.src = randomImageFromList.image
+              // img.src = settings[0].image;             
               
 
               // set banner visibility
