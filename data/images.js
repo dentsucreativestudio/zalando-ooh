@@ -5,4 +5,5 @@ var settings = [
 { image: 'https://dentsucreativestudio.github.io/zalando-ooh/images/zalando_day3_2_3.jpg'},
 { image: 'https://dentsucreativestudio.github.io/zalando-ooh/images/zalando_day3_2_5.jpg'},
 { image: 'https://dentsucreativestudio.github.io/zalando-ooh/images/zalando_day3_2_6.jpg'},
+{ image: 'https://dentsucreativestudio.github.io/zalando-ooh/images/zalando_day3_2_7.jpg'},
 ];
